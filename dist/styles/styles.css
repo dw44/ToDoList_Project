@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap');
+
+*, *:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
+#viewport {
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6e6e6;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+  
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #000;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* ==================================================================================== */
+/*                                      HEADER                                          */
+/* ==================================================================================== */
+
+header {
+    font-size: 2.8em;
+    font-weight: 900;
+    background-color: #07e;
+    color: #fff;
+    clear: left;
+    height: 50px;
+    text-align: center;
+}
+
+header > h1 {
+    padding-top: 2px;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    margin: 5px 10px;
+    background-color: #fff; 
+}
+
+.bar:nth-of-type(1) {
+    margin-top: 14px;
+}
+
+#main-menu {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    background-color: #07e;
+    transition: 0.7s; 
+}
+
+#main-menu:hover {
+    background-color: rgb(0, 68, 136);
+}
+
+/* ==================================================================================== */
+/*                                      NAV                                          */
+/* ==================================================================================== */
+
+nav {
+    width: 50px;
+    height: calc(100vh - 50px);
+    background-color: #fff;
+    transition: 0.75s;
+    z-index: 2;
+}
+
+.expanded-nav {
+    width: 300px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    cursor: pointer;
+}
+
+.project:hover svg,
+.project:hover label {
+    fill: #07e;
+    color: #07e;
+}
+
+.project > label {
+    font-size: 0.555em;
+    cursor: pointer;
+}
+
+.project-wide {
+    padding: 0 15px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-wide > label{
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+#projects {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 3px;
+}
+
+#add-new-project {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #777;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#add-new-project:hover > svg,
+#add-new-project:hover > label {
+    fill: #07e;
+    color: #07e;
+    text-decoration: underline;
+}
+
+#add-prj-txt {
+    display: none;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.highlight {
+    color: #07e;
+    fill: #07e;
+}
+
+.block-disp {
+    display: block;
+}
+
+/* ==================================================================================== */
+/*                                      PROJECTS / TASKS                                */
+/* ==================================================================================== */
+
+main {
+    display: grid;
+    min-width: 360px;
+    grid-template-columns: 50px calc(100% - 50px);
+}
+
+#main-display {
+    width: 100%;
+    height: calc(100vh - 50px);
+    float: right;
+}
+
+@media (min-width: 768px) {
+    main {
+        display: flex;
+    }
+}
+
+
+/* ==================================================================================== */
+/*                                      PROJECT                                         */
+/* ==================================================================================== */
+
+.full-project {
+    width: 100%;
+    height: 100%;
+    background-color: #bae2ff;
+}
+
+
+.project-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-title {
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    padding: 15px;
+}
+
+.add-task {
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #07e;
+    color: #eee;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-task:hover {
+    background-color: #004188;
+}
+/* ==================================================================================== */
+/*                                      TASKS                                         */
+/* ==================================================================================== */
+
+.tasks {
+    width: 100%;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.task {
+    width: 95%;
+    margin: 3px auto;
+    border: 0.5px solid gray;
+}
+
+.task > * {
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.task > h3 {
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 5px 0;
+}
+
+.task > h4 {
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+}
+
+.task > h5 {
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+}
+
+.task-status {
+    margin: 10px 0;
+}
+
+select {
+    display: block;
+    margin: 5px auto;
+    border: none;
+    background-color: #fff;
+}
+
+input[type="date"] {
+    display: block;
+    border: none;
+    margin: 5px auto;
+}
+
+.option {
+    margin: 5px 0;
+}
+
+.option > button {
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #07e;
+    color: #eee;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option > button:hover {
+    background-color: #004188;
+}
+
+/* ==================================================================================== */
+/*                                      EDIT TASKS                                      */
+/* ==================================================================================== */
+
+.edit-task {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 444;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    min-width: 360px;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.task-form {
+    width: 90%;
+    height: 40%;
+    background-color: #adff2f;
+    border-radius: 20px;
+}
+
+form h1{
+    font-size: 2em;
+    margin: 15px 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+form > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-form > div:nth-of-type(6) {
+    margin-top: 20px;
+}
+
+form label,
+form input,
+form select {
+    display: inline-block;
+    width: 250px;
+    margin: 10px;
+}
+
+form button {
+    min-width: 120px;
+    max-width: 200px;
+    height: 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004188;
+    color: #ddd;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: aqua;
+    color: #333;
+}
+
+/* ==================================================================================== */
+/*                                      NEW PROJECT                                     */
+/* ==================================================================================== */
+
+.new-project {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 445;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    min-width: 360px;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#new-project-form {
+    width: 80%;
+    height: 30%;
+    background-color: #adff2f;
+    border-radius: 20px;
+}
+
+#new-project-form > div {
+    justify-content: center;
+}
+
+#new-project-form label {
+    font-size: 1.4em;
+    width: 60px;
+    margin: 0;
+}
+
+
+#new-project-form input[type="text"] {
+    width: 200px;
+}
+
+
+@media (min-width: 768px) {
+    #new-project-form {
+        width: 600px;
+        height: 300px;
+    }
+}

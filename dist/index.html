@@ -6,9 +6,86 @@
 		<title>ToDo List</title>
 		<link rel="stylesheet" href="./styles/reset.css">
 		<link rel="stylesheet" href="./styles/styles.css">
-		<script src="./main.js" defer></script>
+		<script src="../src/index.js" defer></script>
 	</head>
 	<body>
-    
+		<div id="viewport">
+			<header>
+				<div id="main-menu">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>
+				</div>
+				<h1>To-Do List</h1>
+			</header>
+			<!-- Header ends here -->
+			<main>
+				<nav id="navigation-sidebar">		
+					<section id="projects">
+						<div class="project">
+							<svg height="48" viewBox="0 0 128 128" width="48" xmlns="http://www.w3.org/2000/svg"><g><path d="m52.417 79h6.5a1.75 1.75 0 0 0 1.75-1.75v-6.5a1.749 1.749 0 0 0 -1.75-1.75h-6.5a1.749 1.749 0 0 0 -1.75 1.75v6.5a1.75 1.75 0 0 0 1.75 1.75zm1.75-6.5h3v3h-3z"/><path d="m52.417 93.751h6.5a1.749 1.749 0 0 0 1.75-1.751v-6.5a1.75 1.75 0 0 0 -1.75-1.75h-6.5a1.75 1.75 0 0 0 -1.75 1.75v6.5a1.749 1.749 0 0 0 1.75 1.751zm1.75-6.5h3v3h-3z"/><path d="m64.333 59.242a1.75 1.75 0 0 0 1.75 1.75h19.875a1.75 1.75 0 0 0 0-3.5h-19.875a1.75 1.75 0 0 0 -1.75 1.75z"/><path d="m85.958 72.247h-19.875a1.75 1.75 0 0 0 0 3.5h19.875a1.75 1.75 0 0 0 0-3.5z"/><path d="m85.958 87h-19.875a1.75 1.75 0 0 0 0 3.5h19.875a1.75 1.75 0 0 0 0-3.5z"/><path d="m57.594 54.847-2.732 3.153-1.3-1.126a1.75 1.75 0 0 0 -2.291 2.647l2.624 2.27a1.751 1.751 0 0 0 1.145.427h.126a1.754 1.754 0 0 0 1.2-.6l3.877-4.479a1.75 1.75 0 1 0 -2.646-2.291z"/><path d="m93.545 23.682h-57.212a1.749 1.749 0 0 0 -1.75 1.75v6.624h-1.062a4.563 4.563 0 1 0 0 9.125h1.062v4.566h-1.062a4.563 4.563 0 1 0 0 9.125h1.062v4.566h-1.062a4.563 4.563 0 1 0 0 9.125h1.062v4.565h-1.062a4.563 4.563 0 1 0 0 9.125h1.062v4.566h-1.062a4.563 4.563 0 1 0 0 9.125h1.062v6.624a1.749 1.749 0 0 0 1.75 1.75h57.212a1.749 1.749 0 0 0 1.75-1.75v-77.136a1.749 1.749 0 0 0 -1.75-1.75zm-61.087 12.936a1.064 1.064 0 0 1 1.063-1.062h5.625a1.063 1.063 0 0 1 0 2.125h-5.625a1.064 1.064 0 0 1 -1.063-1.063zm0 13.691a1.064 1.064 0 0 1 1.063-1.062h5.625a1.063 1.063 0 0 1 0 2.125h-5.625a1.064 1.064 0 0 1 -1.063-1.063zm0 13.691a1.064 1.064 0 0 1 1.063-1.062h5.625a1.063 1.063 0 0 1 0 2.125h-5.625a1.064 1.064 0 0 1 -1.063-1.063zm0 13.691a1.064 1.064 0 0 1 1.063-1.063h5.625a1.063 1.063 0 0 1 0 2.125h-5.625a1.064 1.064 0 0 1 -1.063-1.062zm0 13.691a1.064 1.064 0 0 1 1.063-1.063h5.625a1.063 1.063 0 0 1 0 2.125h-5.625a1.064 1.064 0 0 1 -1.063-1.062zm59.342 9.436h-53.717v-4.874h1.063a4.563 4.563 0 0 0 0-9.125h-1.063v-4.566h1.063a4.563 4.563 0 0 0 0-9.125h-1.063v-4.565h1.063a4.563 4.563 0 0 0 0-9.125h-1.063v-4.566h1.063a4.563 4.563 0 0 0 0-9.125h-1.063v-4.566h1.063a4.563 4.563 0 0 0 0-9.125h-1.063v-4.874h53.717z"/><path d="m52.417 47.75h31.25a1.75 1.75 0 0 0 1.75-1.75v-10.194a1.749 1.749 0 0 0 -1.75-1.75h-31.25a1.749 1.749 0 0 0 -1.75 1.75v10.194a1.75 1.75 0 0 0 1.75 1.75zm1.75-10.194h27.75v6.694h-27.75z"/></g></svg>
+							<label>Default</label>
+						</div>
+					</section>
+					<section id="add-new-project">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000" width="48px" height="48px"><path d="M0 0h24v24H0z" fill="none"/><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/></svg>
+						<label id="add-prj-txt">Add Project</label>
+					</section>
+				</nav>
+				<section id="main-display">
+					<div class="edit-task">
+						<form class="task-form">							
+							<h1>EDIT TASK</h1>
+							<div>
+								<label for="task-title">Title</label>
+								<input type="text" id="task-title" required>
+							</div>
+							<div>
+								<label for="task-desc">Description</label>
+								<input type="text" id="task-desc">
+							</div>
+							<div>
+								<label for="due-date">Due on</label>
+								<input type="date" id="due-date">
+							</div>
+							<div>
+								<label for="priority">Priority</label>
+								<select name="task-prio" id="task-prio">
+									<option value="high">High</option>
+									<option value="medium">Medium</option>
+									<option value="low">Low</option>
+								</select>
+							</div>
+							<div>
+								<label for="task-status">Completed</label>
+								<select name="task-comp" id="task-status">
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
+							</div>
+							<div>
+								<button>Done</button>
+								<button>Close</button>
+							</div>							
+						</form>
+					</div>
+					<div class="new-project">
+						<form id="new-project-form">
+							<h1>Add Project</h1>
+							<div>
+								<label for="proj-title">Title</label>
+								<input type="text" name="proj-title" id="proj-title" required>
+							</div>
+							<div>
+								<button id="npf-done">Done</button>
+								<button id="npf-close">Close</button>
+							</div>	
+						</form>
+					</div>				
+				</section>
+				<!-- Project display ends here -->
+				<!-- Add Project / Edit Task forms -->
+			</main>
+		</div>
 	</body>
 </html>
