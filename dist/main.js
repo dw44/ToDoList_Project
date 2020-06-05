@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/projects */ \"./src/modules/projects.js\");\n\n\nconst store = localStorage;\n\n\n\n\n//  Test\n_modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"allProjects\"].addProject('Axe');\n_modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"allProjects\"].projects[1].addTask('Leshrac', 'Create Imbalance', '03/03/2020', 'High', 'Pending');\n\nstore.setItem('projects', JSON.stringify(_modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"allProjects\"]));\nconsole.log(JSON.parse(store.getItem('projects'))[0]);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/projects */ \"./src/modules/projects.js\");\n/* harmony import */ var _modules_project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/project */ \"./src/modules/project.js\");\n\n\n\nconst store = localStorage;\n\n\n\n\n//  Test\n_modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"allProjects\"].addProject('Axe');\n\nstore.setItem('projects', JSON.stringify(_modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"allProjects\"]));\nfor (const proj of JSON.parse(store.getItem('projects')).projects) {\n    const rebuilt = _modules_project__WEBPACK_IMPORTED_MODULE_1__[\"Project\"].rebuild(proj.title, proj._id, [1, 2, 3], false);\n    console.log(rebuilt);\n}\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Project\", function() { return Project; });\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/modules/task.js\");\n\n\nclass Project {\n  constructor(title) {\n    this.title = title;\n    this._id = `_${Math.random().toString(36).substr(2,10)}`;\n    this.tasks = [];\n    this.active = true;\n  }\n\n  addTask(title, description, dueDate, priority, status) {\n    this.tasks.push(new _task__WEBPACK_IMPORTED_MODULE_0__[\"Task\"](title, description, dueDate, priority, status));\n  }\n\n\n}\n\n//# sourceURL=webpack:///./src/modules/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Project\", function() { return Project; });\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/modules/task.js\");\n\n\nclass Project {\n  constructor(title) {\n    this.title = title;\n    this.id = `_${Math.random().toString(36).substr(2,10)}`;\n    this.tasks = [];\n    this.active = true;\n  }\n\n  addTask(title, description, dueDate, priority, status) {\n    this.tasks.push(new _task__WEBPACK_IMPORTED_MODULE_0__[\"Task\"](title, description, dueDate, priority, status));\n  }\n\n  static rebuild(title, id, tasks, active) {\n    // to rebuild project that loses functions when stringified for local storage \n    const rebuiltProject = new Project(title);\n    rebuiltProject.id = id;\n    rebuiltProject.tasks = [...tasks];\n    rebuiltProject.active = active;\n    return rebuiltProject;\n  }\n\n}\n\n//# sourceURL=webpack:///./src/modules/project.js?");
 
 /***/ }),
 
@@ -118,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"allProjects\", function() { return allProjects; });\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/modules/project.js\");\n\n\nconst store = window.localStorage;\n\nconst allProjects = (function() {\n  const projects = [new _project__WEBPACK_IMPORTED_MODULE_0__[\"Project\"]('Default')];\n  const addProject = title => projects.push(new _project__WEBPACK_IMPORTED_MODULE_0__[\"Project\"](title));\n  return {\n    projects,\n    addProject\n  };\n})();\n\n//# sourceURL=webpack:///./src/modules/projects.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"allProjects\", function() { return allProjects; });\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/modules/project.js\");\n\n\n\n\nconst allProjects = (function() {\n  const projects = [new _project__WEBPACK_IMPORTED_MODULE_0__[\"Project\"]('Default')];\n  const addProject = title => projects.push(new _project__WEBPACK_IMPORTED_MODULE_0__[\"Project\"](title));\n  return {\n    projects,\n    addProject\n  };\n})();\n\n//# sourceURL=webpack:///./src/modules/projects.js?");
 
 /***/ }),
 
@@ -130,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Task\", function() { return Task; });\nclass Task {\n  constructor(title, description, dueDate, priority, status) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n    this.status = status;\n    this.task_id = `_${Math.random().toString(36).substr(2,10)}`;\n  }\n\n  edit(title, description, dueDate, priority, status) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n    this.status = status;\n  }\n}\n\n\n\n//# sourceURL=webpack:///./src/modules/task.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Task\", function() { return Task; });\nclass Task {\n  constructor(title, description, dueDate, priority, status, id) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n    this.status = status;\n    this.task_id = id || `_${Math.random().toString(36).substr(2,10)}`;\n  }\n\n  edit(title, description, dueDate, priority, status) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n    this.status = status;\n  }\n\n}\n\n\n\n//# sourceURL=webpack:///./src/modules/task.js?");
 
 /***/ })
 

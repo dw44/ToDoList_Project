@@ -1,13 +1,13 @@
 import {allProjects} from './modules/projects';
+import {Project} from './modules/project';
 
 const store = localStorage;
 
-
-
-
 //  Test
 allProjects.addProject('Axe');
-allProjects.projects[1].addTask('Leshrac', 'Create Imbalance', '03/03/2020', 'High', 'Pending');
 
 store.setItem('projects', JSON.stringify(allProjects));
-console.log(JSON.parse(store.getItem('projects')));
+for (const proj of JSON.parse(store.getItem('projects')).projects) {
+    const rebuilt = Project.rebuild(proj.title, proj._id, [1, 2, 3], false);
+    console.log(rebuilt);
+} // project reconstruction working

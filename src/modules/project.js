@@ -1,10 +1,10 @@
 import {Task} from './task';
 
 export class Project {
-  constructor(title, id, tasks) {
+  constructor(title) {
     this.title = title;
-    this._id = id || `_${Math.random().toString(36).substr(2,10)}`;
-    this.tasks = [...tasks] || [];
+    this.id = `_${Math.random().toString(36).substr(2,10)}`;
+    this.tasks = [];
     this.active = true;
   }
 
@@ -12,5 +12,13 @@ export class Project {
     this.tasks.push(new Task(title, description, dueDate, priority, status));
   }
 
+  static rebuild(title, id, tasks, active) {
+    // to rebuild project that loses functions when stringified for local storage 
+    const rebuiltProject = new Project(title);
+    rebuiltProject.id = id;
+    rebuiltProject.tasks = [...tasks];
+    rebuiltProject.active = active;
+    return rebuiltProject;
+  }
 
 }
